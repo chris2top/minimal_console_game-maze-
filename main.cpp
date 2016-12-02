@@ -1,16 +1,23 @@
 #include <iostream>
 #include <vector>
-#include "../include/file_utility.h"
-#include "../include/mechanics.h"
+#include "file_utility.h"
+#include "mechanics.h"
+#include "field_generator.h"
 
 using namespace std;
 
 int main() {
+    
+    std::vector<std::string> v = {"#P.##","##.##","##C##","##.##","##Y##"}; //wird ersetzt durch create_field
+    std::vector<std::string> v2 = create_field(3);
+    write_file(v2, "l1");
+
+
     int coin_counter = 0;
     bool run = true;
     bool repeat = false;
     string inp;
-    vector<string> level = file_content("levels/level1.lvl");
+    vector<string> level = file_content("l1.lvl");
     pair<int, int> gate = detect_gate(level);
     vector<pair<int, int>> coin = detect_coin(level);
 

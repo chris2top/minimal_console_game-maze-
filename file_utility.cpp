@@ -1,7 +1,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include "../include/file_utility.h"
+#include "file_utility.h"
 
 std::vector<std::string> file_content(std::string filename)
 {
@@ -20,4 +20,13 @@ std::vector<std::string> file_content(std::string filename)
 
     return contents;
 
+}
+
+
+void write_file(std::vector<std::string> text, std::string filename){
+    std::ofstream infile;
+    infile.open(filename+".lvl");
+    if(infile.fail()) perror(filename.c_str());
+    for(auto t:text) infile << t << std::endl;
+    infile.close();
 }
