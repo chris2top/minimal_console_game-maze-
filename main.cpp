@@ -11,13 +11,14 @@ int main() {
     std::vector<std::string> v = {"#P.##","##.##","##C##","##.##","##Y##"}; //wird ersetzt durch create_field
     std::vector<std::string> v2 = create_field(3);
     write_file(v2, "l1");
-
+    
+    create_maze(v2, "l1");
 
     int coin_counter = 0;
     bool run = true;
     bool repeat = false;
     string inp;
-    vector<string> level = file_content("l1.lvl");
+    vector<string> level = file_content("level1.lvl");
     pair<int, int> gate = detect_gate(level);
     vector<pair<int, int>> coin = detect_coin(level);
 
